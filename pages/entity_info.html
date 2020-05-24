@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MoneyKeeper</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="module">
+        import * as main from './../main.js';
+        
+        main.show_user_info();
+
+        $("#addMoneyBtn").click(function () {
+            main.add_money();
+        });
+        
+        $("#present").click(function () {
+            main.present();
+        });
+    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div class="container-fluid px-lg-0">
+        <div class="row no-gutters">
+            <div class="page-wrapper chiller-theme toggled" id="theme-set">
+                <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <nav id="sidebar" class="sidebar-wrapper">
+                    <!-- sidebar-content  -->
+                    <div class="sidebar-content">
+                        <div class="sidebar-brand">
+                            <a href="/index.html">Bier Management System</a>
+                            <div id="close-sidebar">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+
+                        <!-- sidebar header  -->
+                        <a href="#">
+                            <div class="sidebar-header">
+                                <div class="user-pic">
+                                    <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                                </div>
+                                <div class="user-info">
+
+                                    <span class="user-status">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Online</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- sidebar menu -->
+                        <div class="sidebar-menu">
+                            <ul>
+                                <li class="header-menu">
+                                    <span>General</span>
+                                </li>
+                                <li>
+                                    <a href="/index.html">
+                                        <i class="fa fa-tachometer-alt"></i>
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/pages/add_entity.html">
+                                        <i class="fa fa-plus"></i>
+                                        <span>Add Entity</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/pages/entity_list.html">
+                                        <i class="fas fa-user"></i>
+                                        <span>Entity List</span>
+                                    </a>
+                                </li>
+                                <li class="header-menu">
+                                    <span>Extra</span>
+                                </li>
+                                <li>
+                                    <a href="/documentation" target="_blank">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Documentation</span>
+                                        <span class="badge badge-pill badge-primary">Beta</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- sidebar footer -->
+                    <div class="sidebar-footer">
+                        <label class="switch">
+                            <input type="checkbox" id="theme-switch">
+                            <span class="slider round"></span>
+                        </label>
+                        <a href="http://www.google.com">
+                            <i class="fa fa-power-off"></i>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-md-11 ml-auto ">
+                <div class="right-menu col-8 mx-auto pt-5">
+                    <div class="errormessage">
+                        <!-- error message here-->
+                    </div>
+
+                    <!-- site content here -->
+                    <h1>Entity Info</h1>
+                    <a href="/index.html">Dashboard</a><span> → </span><a href="/pages/entity_list.html">Entity List</a><span> → </span><a href="entity_info.html">Entity Info</a>
+                    <hr />
+
+                    <div class="addpage-form">
+                        <input type="hidden" name="id" id="id" />
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Naam: </label>
+                            <div class="col-sm-10">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Naam" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Geld ingelegd: </label>
+                            <div class="col-sm-10">
+                                <input type="text" name="money" id="money" class="form-control" placeholder="0" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Geld Over: </label>
+                            <div class="col-sm-10">
+                                <input type="text" name="money_left" id="moneyLeft" class="form-control" placeholder="0" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Bier Gepakt: </label>
+                            <div class="col-sm-10">
+                                <input type="text" name="beerTaken" id="beerTaken" class="form-control" placeholder="0" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Bier Over: </label>
+                            <div class="col-sm-10">
+                                <input type="text" name="beer_left" id="beerLeft" class="form-control" placeholder="0" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Geld Toevoegen: </label>
+                            <div class="col-sm-7">
+                                <input type="number" name="add_money" id="moneyInsert" class="form-control" placeholder="Hoeveelheid geld toegevoegd" />
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="form-control btn btn-primary" id="addMoneyBtn">Toevoegen</button>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Aanwezig Melden: </label>
+                            <div class="col-sm-10">
+                                <button class="form-control btn btn-warning" id="present">Aanwezig</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
